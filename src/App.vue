@@ -1,10 +1,10 @@
 <template>
   <div class="corpo">
     <h1 class="centralizado">{{ titulo }}</h1>
+    <input type="search" class="filtro"  v-on:input="filtro = $event.target.value" placeholder="Filter por parte do titulo">
 
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotos">
-
         <meu-painel :titulo="foto.titulo">
             <img class="imagem-responsiva" :src="foto.url"  :alt="foto.titulo"  />
         </meu-painel>
@@ -14,16 +14,17 @@
 </template>
 
 <script>
-import Painel from './components/shared/painel/Painel.vue';
+  import Painel from './components/shared/painel/Painel.vue';
 
-export default {
+  export default {
   components:{
     'meu-painel':Painel
   },
   data(){
     return {
       titulo: 'Calopsita',
-      fotos: []
+      fotos: [],
+      filtro:''
     }
   },
   created() {
@@ -51,5 +52,10 @@ export default {
 
   .lista-fotos .lista-fotos-item{
     display: inline-block;
+  }
+
+  .filtro{
+    display: block;
+    width: 100%;
   }
 </style>

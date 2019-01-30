@@ -1,7 +1,7 @@
 <template>
   <div class="corpo">
     <h1 class="centralizado">{{ titulo }}</h1>
-    <input type="search" class="filtro"  v-on:input="filtro = $event.target.value" placeholder="Filter por parte do titulo">
+    <input type="search" class="filtro"  @input="filtro = $event.target.value" placeholder="Filter por parte do titulo">
 
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
@@ -68,6 +68,10 @@
 
   .filtro{
     display: block;
+    width: 100%;
+  }
+
+  .imagem-responsiva{
     width: 100%;
   }
 </style>

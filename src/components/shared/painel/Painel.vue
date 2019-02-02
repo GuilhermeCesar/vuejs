@@ -5,7 +5,7 @@
       <div class="painel-conteudo" v-show="visivel">
         <slot></slot>
       </div>
-    </transition >
+    </transition>
   </div>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1 class="centralizado" @click="remove()">{{ titulo }}</h1>
+    <h1 class="centralizado" @click="remove()" >{{ titulo }}</h1>
     <input type="search" class="filtro"  @input="filtro = $event.target.value" placeholder="Filter por parte do titulo">
 
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
-        <meu-painel :titulo="foto.titulo">
-          <imagem-responsiva :titulo="foto.titulo" :url="foto.url"></imagem-responsiva>
+        <meu-painel :titulo="foto.titulo" >
+          <imagem-responsiva  v-meu-transform :titulo="foto.titulo" :url="foto.url"></imagem-responsiva>
           <meu-botao :confirmacao="true"
                      tipo="button"
                      rotulo="REMOVER"

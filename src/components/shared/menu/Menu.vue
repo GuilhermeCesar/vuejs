@@ -8,16 +8,12 @@
 
 <script>
 	export default {
-		name: "menu",
     props:{
 		  rotas:{
 		    required:true,
         type:Array
       }
     },
-    data(){
-
-    }
 	}
 </script>
 

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h1 class="centralizado">{{ titulo }}</h1>
+    <h1 class="centralizado" @click="remove()">{{ titulo }}</h1>
     <input type="search" class="filtro"  @input="filtro = $event.target.value" placeholder="Filter por parte do titulo">
 
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :titulo="foto.titulo" :url="foto.url"></imagem-responsiva>
+          <meu-botao tipo="button" rotulo="REMOVER" @botaoAtivado="remove(foto)"></meu-botao>
         </meu-painel>
       </li>
     </ul>
@@ -16,17 +17,24 @@
 <script>
   import Painel from '../shared/painel/Painel.vue';
   import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
+  import Botao from '../shared/botao/Botao.vue';
 
   export default {
     components:{
       'meu-painel':Painel,
-      'imagem-responsiva':ImagemResponsiva
+      'imagem-responsiva':ImagemResponsiva,
+      'meu-botao':Botao
     },
     data(){
       return {
         titulo: 'Calopsita',
         fotos: [],
         filtro:''
+      }
+    },
+    methods:{
+      remove(foto){
+        alert("Remover a foto" + foto.titulo);
       }
     },
     created() {

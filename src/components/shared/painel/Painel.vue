@@ -58,4 +58,8 @@
     transition: opacity .2s;
   }
 
+  .painel-conteudo{
+    overflow: hidden;
+  }
+
 </style>

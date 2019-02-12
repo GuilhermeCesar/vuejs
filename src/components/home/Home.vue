@@ -41,7 +41,11 @@
       remove(foto){
         this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`)
           .then(
-            ()=>this.mensagem='Foto removida com sucesso',
+            ()=>{
+              let indice = this.fotos.indexOf(foto);
+              this.fotos.splice(indice,1);
+              this.mensagem='Foto removida com sucesso'
+            },
             err=> {
               console.error(err);
               this.mensagem = "Não foi posssivel remover a foto";
